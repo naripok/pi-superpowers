@@ -139,7 +139,7 @@ The spec compliance reviewer uses **three references** to verify the implementat
 | **Feature spec + proposal** (context) | Intent and rationale | "Are internal changes (refactoring, architecture) consistent with the design intent?" |
 | **Task text** (execution) | What was asked this task | "Did the implementer follow the steps they were given?" |
 
-**Before dispatching the spec reviewer,** read the delta spec from `docs/plans/<date>-<feature>-delta.md` and include its FULL TEXT in the reviewer's context alongside the task requirements. This is REQUIRED — not optional. The spec reviewer cannot verify behavioral compliance without the delta spec.
+**Before dispatching the spec reviewer,** read the delta spec from `docs/design/<date>-<topic>-delta.md` and include its FULL TEXT in the reviewer's context alongside the task requirements. This is REQUIRED — not optional. The spec reviewer cannot verify behavioral compliance without the delta spec.
 
 **Delta spec mutability:** During the review loop, if the spec compliance reviewer finds a discrepancy between the code and the delta spec, you must decide whether to:
 - (a) **Fix the code** — the delta spec is correct, the implementation is wrong

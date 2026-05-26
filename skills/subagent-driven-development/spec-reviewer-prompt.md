@@ -16,7 +16,7 @@ Task({
 
     ## Behavioral Contract (Primary Reference)
 
-    [FULL TEXT of the delta spec from docs/plans/<date>-<feature>-delta.md]
+    [FULL TEXT of the delta spec from docs/design/<date>-<topic>-delta.md]
 
     This is the behavioral contract — what behavior is being ADDED, MODIFIED, or
     REMOVED. This is your PRIMARY reference for spec compliance.

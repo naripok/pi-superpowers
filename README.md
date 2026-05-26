@@ -108,7 +108,7 @@ Convert the approved proposal and feature spec into a delta spec and implementat
 1. **Read the proposal** — intent, scope, approach, impact
 2. **Read the feature spec** — behavioral requirements
 3. **Read relevant living specs** from `docs/specs/` (current behavior for affected domains)
-4. **Write delta spec** → `docs/plans/YYYY-MM-DD-<feature>-delta.md` — derived by diffing the feature spec against the living spec
+4. **Write delta spec** → `docs/design/YYYY-MM-DD-<topic>-delta.md` — derived by diffing the feature spec against the living spec
 
    The delta spec declares what behavioral requirements are changing:
 
@@ -192,7 +192,7 @@ After all tasks: final code review → invoke `finishing-a-development-branch`.
 4. **Execute choice**
 5. **Sync living specs** (Options 1, 2, 3 only — never for discard):
 
-   Read `docs/plans/<date>-<feature>-delta.md`, merge into `docs/specs/`:
+   Read `docs/design/<date>-<topic>-delta.md`, merge into `docs/specs/`:
    - ADDED → append (or treat as MODIFIED if name exists)
    - MODIFIED → add/replace scenarios, preserve existing content
    - REMOVED → delete requirement block
@@ -211,12 +211,12 @@ docs/
 │   ├── auth.md
 │   ├── notifications.md
 │   └── ...
-├── design/                                # Proposals + feature specs
+├── design/                                # Proposals, feature specs, deltas
 │   ├── 2026-05-06-add-webpush-proposal.md  # Intent, scope, approach
-│   └── 2026-05-06-add-webpush-spec.md      # Behavioral contract (SHALL/GIVEN/WHEN/THEN)
+│   ├── 2026-05-06-add-webpush-spec.md      # Behavioral contract (SHALL/GIVEN/WHEN/THEN)
+│   └── 2026-05-06-add-webpush-delta.md     # Delta spec (derived from spec vs living spec)
 └── plans/
-    ├── 2026-05-06-add-webpush.md          # Implementation plan
-    └── 2026-05-06-add-webpush-delta.md    # Delta spec (derived from spec vs living spec)
+    └── 2026-05-06-add-webpush.md          # Implementation plan
 ```
 
 | Path                                     | What                                            | Lifespan                              |
@@ -225,7 +225,7 @@ docs/
 | `docs/design/<date>-<topic>-proposal.md` | Why and what scope (intent, approach, impact)   | One-off per feature                   |
 | `docs/design/<date>-<topic>-spec.md`     | What behavior (SHALL, scenarios)                | One-off per feature, drives delta     |
 | `docs/plans/<date>-<feature>.md`         | How to build it (step-by-step)                  | One-off per feature                   |
-| `docs/plans/<date>-<feature>-delta.md`   | What behavioral requirements are changing       | One-off per feature, consumed by sync |
+| `docs/design/<date>-<topic>-delta.md`    | What behavioral requirements are changing       | One-off per feature, consumed by sync |
 
 ## Cross-Cutting Skills
 

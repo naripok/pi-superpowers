@@ -141,7 +141,7 @@ Then: Cleanup worktree (Step 5)
 
 **For Options 1, 2, 3 only.** (Skip for Option 4 — discard.)
 
-Read the delta spec from `docs/plans/<date>-<feature>-delta.md` and merge it into the living specs in `docs/specs/`.
+Read the delta spec from `docs/design/<date>-<topic>-delta.md` and merge it into the living specs in `docs/specs/`.
 
 The delta spec was derived during planning by comparing the feature spec (proposed behavior) against the living spec (current behavior). The sync step merges the approved changes back into the living spec, completing the cycle.
 

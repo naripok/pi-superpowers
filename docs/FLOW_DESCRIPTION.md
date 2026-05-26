@@ -24,7 +24,7 @@ Brainstorming reads the living spec
 | `docs/design/<date>-<topic>-proposal.md` | Why and what scope (intent, approach, impact) | One-off per feature                   |
 | `docs/design/<date>-<topic>-spec.md`     | What behavior (SHALL, scenarios)              | One-off per feature, drives delta     |
 | `docs/plans/<date>-<topic>.md`           | How to build it (step-by-step)                | One-off per feature                   |
-| `docs/plans/<date>-<topic>-delta.md`     | What behavioral requirements are changing     | One-off per feature, consumed by sync |
+| `docs/design/<date>-<topic>-delta.md`    | What behavioral requirements are changing     | One-off per feature, consumed by sync |
 
 ## Step-by-Step Flow
 
@@ -50,7 +50,7 @@ Brainstorming reads the living spec
 ┌─ WRITING PLANS ───────────────────────────────────────────────────────────┐
 │                                                                           │
 │  1. Read proposal + feature spec + living specs                           │
-│  2. Write delta spec → docs/plans/<topic>-delta.md                        │
+│  2. Write delta spec → docs/design/<topic>-delta.md                        │
 │     └── derived by diffing feature spec vs living spec                    │
 │  3. File structure                                                        │
 │  4. Write tasks → docs/plans/<topic>.md                                   │
