@@ -80,6 +80,8 @@ Task({
 });
 ```
 
+**For the complete flow diagram, artifact chain, and step-by-step walkthrough, see [docs/FLOW_DESCRIPTION.md](docs/FLOW_DESCRIPTION.md).**
+
 ## The Full Workflow
 
 ### 1. Brainstorming (`brainstorming/SKILL.md`)
