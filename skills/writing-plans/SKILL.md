@@ -241,7 +241,11 @@ After writing the complete plan and delta spec, look at everything with fresh ey
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task. If you find a delta requirement with no test, add the test step.
 
-**Optional: Dispatch plan reviewer.** For complex plans or when you want an external check, dispatch a read-only subagent using `plan-document-reviewer-prompt.md` to verify plan completeness and spec alignment. This is recommended but not required — the self-review above is the mandatory gate.
+**Dispatch plan reviewer.** After the self-review passes, dispatch a read-only subagent using `plan-document-reviewer-prompt.md` to verify plan completeness and spec alignment. This is required — the self-review catches what you can see, the plan reviewer catches what you miss.
+
+**If the reviewer finds issues:** Fix the plan, then re-dispatch the reviewer. Loop until the reviewer approves.
+
+**Do NOT proceed to the execution handoff until the plan reviewer approves.**
 
 ## Execution Handoff
 
