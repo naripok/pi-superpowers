@@ -1,6 +1,6 @@
 ---
 name: using-superpowers
-description: Use when starting any conversation - establishes how to find and use skills before responding or taking action
+description: Use when implementing new features or applications, or starting complex multi-step tasks that may benefit from structured workflows like brainstorming, TDD, or debugging. NOT for simple questions or straightforward operations.
 ---
 
 <SUBAGENT-STOP>
