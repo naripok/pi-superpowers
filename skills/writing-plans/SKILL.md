@@ -15,7 +15,7 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Context:** This should be run in a dedicated worktree (created by brainstorming skill).
 
-**Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
+**Save plans to:** `docs/plans/YYYY-MM-DD-<topic>.md`
 - (User preferences for plan location override this default)
 
 ## Scope Check
@@ -36,7 +36,7 @@ These are your source material. Every task in the plan must trace back to a requ
 
 Write the delta spec FIRST, before the file structure and tasks. The delta spec is derived by comparing the feature spec (proposed behavior) against the living spec (current behavior). It declares what behavioral requirements are changing.
 
-Save to: `docs/plans/YYYY-MM-DD-<feature-name>-delta.md`
+Save to: `docs/plans/YYYY-MM-DD-<topic>-delta.md`
 
 **Why delta spec before tasks:** The delta spec is the behavioral contract. Tasks implement it. Writing tasks first and backfilling the delta spec produces a spec that mirrors the implementation rather than driving it. The delta spec must stand on its own as a complete statement of behavioral change — tasks are the execution plan, not the specification.
 
@@ -251,7 +251,7 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 After saving the plan and delta spec, offer execution choice:
 
-**"Plan complete and saved to `docs/plans/<filename>.md` (delta: `<filename>-delta.md`). Two execution options:**
+**"Plan complete and saved to `docs/plans/YYYY-MM-DD-<topic>.md` (delta: `YYYY-MM-DD-<topic>-delta.md`). Two execution options:**
 
 **1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
 

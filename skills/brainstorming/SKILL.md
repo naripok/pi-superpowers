@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: Use before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+description: Use before any creative work - creating features, building components, adding functionality, or modifying behavior.
 ---
 
 # Brainstorming Ideas Into Designs
@@ -10,7 +10,7 @@ Help turn ideas into fully formed proposals and specs through natural collaborat
 Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval. Then write the proposal and the feature spec — the behavioral contract that drives all downstream work.
 
 <HARD-GATE>
-Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have written both the proposal and the feature spec, and the user has approved them. This applies to EVERY project regardless of perceived simplicity.
+Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have written both the proposal and the feature spec, the spec reviewer has approved the feature spec, and the user has approved them. This applies to EVERY project regardless of perceived simplicity.
 </HARD-GATE>
 
 ## Anti-Pattern: "This Is Too Simple To Need A Design"
@@ -201,6 +201,8 @@ No requirements added, modified, or removed.
 After writing the feature spec, dispatch a read-only subagent using `spec-document-reviewer-prompt.md` to verify the spec is complete and truly behavioral.
 
 **If the reviewer finds issues:** Fix the spec, then re-dispatch the reviewer. Loop until the reviewer approves.
+
+**If the reviewer finds fundamental issues** (the spec is entirely architecture, the approach is wrong at the behavioral level): escalate to the user before rewriting. Present the reviewer's findings and ask whether to revise the approach or start over. Don't silently rewrite the spec based on reviewer feedback — the user may have a different perspective on what behavior they actually want.
 
 **Do NOT proceed to the user review gate until the spec reviewer approves.**
 

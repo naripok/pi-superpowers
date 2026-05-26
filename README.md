@@ -157,8 +157,8 @@ Convert the approved proposal and feature spec into a delta spec and implementat
    - Reverse coverage (tasks → delta + spec — no scope creep)
    - Placeholder scan
    - Type consistency
-
-8. **Execution handoff** — offer subagent-driven (recommended) or inline execution
+8. **Dispatch plan reviewer** — verify plan completeness and spec alignment (required, not optional)
+9. **Execution handoff** — offer subagent-driven (recommended) or inline execution
 
 ### 3. Execution (`subagent-driven-development/SKILL.md` or `executing-plans/SKILL.md`)
 
@@ -255,4 +255,4 @@ Skills are invoked automatically via metadata headers and harness integration. T
 | **Multi-domain features**              | Feature spec and delta have multiple `## Domain: <name>` sections. Sync iterates over each, updating the corresponding living spec. |
 | **Implementation diverges from delta** | Controller decides during review: fix code or update delta. Delta is mutable during implementation.               |
 | **User discards the branch**           | Sync never runs. Living spec untouched.                                                                           |
-| **User keeps branch as-is**            | Sync runs. Living spec reflects behavior on the feature branch.                                                   |
+| **User keeps branch as-is**            | Sync runs. Living spec reflects the behavioral contract from the delta spec (which may differ from actual implementation if divergence occurred).                                                   |

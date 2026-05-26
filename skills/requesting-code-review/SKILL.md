@@ -30,7 +30,7 @@ HEAD_SHA=$(git rev-parse HEAD)
 DIFF_OUTPUT=$(git diff $BASE_SHA..$HEAD_SHA)
 ```
 
-**3. Dispatch code-reviewer subagent:**
+**2. Dispatch code-reviewer subagent:**
 
 Use Task tool with `agent: "read-only"`, fill template with the diff output included:
 
@@ -57,7 +57,7 @@ Read the modified files for full context, then review.`
 - `{DIFF_OUTPUT}` - The git diff output (must be provided by controller, not the reviewer)
 - `{DESCRIPTION}` - Brief summary
 
-**3. Act on feedback:**
+**2. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
