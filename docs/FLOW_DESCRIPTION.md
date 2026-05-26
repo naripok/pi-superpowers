@@ -50,7 +50,7 @@ Brainstorming reads the living spec
 ┌─ WRITING PLANS ───────────────────────────────────────────────────────────┐
 │                                                                           │
 │  1. Read proposal + feature spec + living specs                           │
-│  2. Write delta spec → docs/design/<topic>-delta.md                        │
+│  2. Write delta spec → docs/design/<topic>-delta.md                       │
 │     └── derived by diffing feature spec vs living spec                    │
 │  3. File structure                                                        │
 │  4. Write tasks → docs/plans/<topic>.md                                   │

@@ -224,7 +224,7 @@ docs/
 | `docs/specs/<domain>.md`                 | How the system _currently_ behaves              | Persistent, updated by sync           |
 | `docs/design/<date>-<topic>-proposal.md` | Why and what scope (intent, approach, impact)   | One-off per feature                   |
 | `docs/design/<date>-<topic>-spec.md`     | What behavior (SHALL, scenarios)                | One-off per feature, drives delta     |
-| `docs/plans/<date>-<feature>.md`         | How to build it (step-by-step)                  | One-off per feature                   |
+| `docs/plans/<date>-<topic>.md`           | How to build it (step-by-step)                  | One-off per feature                   |
 | `docs/design/<date>-<topic>-delta.md`    | What behavioral requirements are changing       | One-off per feature, consumed by sync |
 
 ## Cross-Cutting Skills

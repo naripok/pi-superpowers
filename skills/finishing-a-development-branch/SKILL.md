@@ -147,7 +147,7 @@ The delta spec was derived during planning by comparing the feature spec (propos
 
 #### If the delta declares "No Behavioral Changes"
 
-Skip the sync entirely. Commit a note if appropriate: `note: <feature> had no behavioral changes`.
+Skip the sync entirely. Commit a note if appropriate: `note: <topic> had no behavioral changes`.
 
 #### If the delta has domain changes
 
