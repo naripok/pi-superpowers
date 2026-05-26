@@ -158,7 +158,7 @@ Write bite-sized tasks that implement the delta spec. Every task must trace to a
 
 **Feature spec:** `docs/design/YYYY-MM-DD-<topic>-spec.md`
 
-**Delta spec:** `docs/plans/YYYY-MM-DD-<feature-name>-delta.md`
+**Delta spec:** `docs/plans/YYYY-MM-DD-<topic>-delta.md`
 
 ---
 ```
@@ -240,6 +240,8 @@ After writing the complete plan and delta spec, look at everything with fresh ey
 **5. Type consistency:** Do the types, method signatures, and property names you used in later tasks match what you defined in earlier tasks? A function called `clearLayers()` in Task 3 but `clearFullLayers()` in Task 7 is a bug.
 
 If you find issues, fix them inline. No need to re-review — just fix and move on. If you find a spec requirement with no task, add the task. If you find a delta requirement with no test, add the test step.
+
+**Optional: Dispatch plan reviewer.** For complex plans or when you want an external check, dispatch a read-only subagent using `plan-document-reviewer-prompt.md` to verify plan completeness and spec alignment. This is recommended but not required — the self-review above is the mandatory gate.
 
 ## Execution Handoff
 

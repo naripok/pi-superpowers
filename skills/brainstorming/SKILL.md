@@ -21,7 +21,7 @@ Every project goes through this process. A todo list, a single-function utility,
 
 You MUST create a task for each of these items and complete them in order:
 
-1. **Read living specs** — check `docs/specs/` for relevant domain specs. They describe current system behavior. If no spec exists for the relevant domain, note that the feature spec will create it.
+1. **Read living specs** — check `docs/specs/` for relevant domain specs. They describe current system behavior. If no spec exists for the relevant domain, note that the feature spec will define the domain's initial behavioral requirements.
 2. **Explore project context** — check files, docs, recent commits
 3. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
 4. **Propose 2-3 approaches** — with trade-offs and your recommendation
@@ -61,7 +61,7 @@ digraph brainstorming {
     "Dispatch spec reviewer" -> "Spec reviewer approves?";
     "Spec reviewer approves?" -> "Write feature spec\n(docs/design/)" [label="issues found"];
     "Spec reviewer approves?" -> "User reviews proposal + spec?" [label="approved"];
-    "User reviews proposal + spec?" -> "Write feature spec\n(docs/design/)" [label="changes requested"];
+    "User reviews proposal + spec?" -> "Write proposal\n(docs/design/)" [label="changes requested"];
     "User reviews proposal + spec?" -> "Invoke writing-plans skill" [label="approved"];
 }
 ```
