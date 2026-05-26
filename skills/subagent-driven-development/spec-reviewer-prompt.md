@@ -6,6 +6,8 @@ Use this template when dispatching a spec compliance reviewer subagent.
 
 This is a template for constructing the `task` parameter of a `Task` tool call with `agent: "read-only"`.
 
+**IMPORTANT:** The delta spec is a REQUIRED input. If the controller did not include the delta spec's full text, report `NEEDS_CONTEXT` and request it. You cannot review spec compliance without the behavioral contract.
+
 ```
 Task({
   agent: "read-only",
@@ -21,9 +23,9 @@ Task({
 
     ## Design Intent (Context)
 
-    [Relevant sections from the design doc — architecture, rationale, internal changes]
+    [Relevant sections from the feature spec and proposal — architecture, rationale, internal changes]
 
-    The design doc provides context for internal changes that may not appear in
+    The feature spec and proposal provide context for internal changes that may not appear in
     the delta spec (refactoring, architecture decisions). Use it to understand
     why things are structured the way they are.
 
@@ -71,7 +73,7 @@ Task({
     - Did they claim something works but didn't actually implement it?
 
     **Extra/unneeded work:**
-    - Did they build things that weren't in the delta spec or design doc?
+    - Did they build things that weren't in the delta spec or feature spec?
     - Did they over-engineer or add unnecessary features?
     - Did they add "nice to haves" that weren't in spec?
 

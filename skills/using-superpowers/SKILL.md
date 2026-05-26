@@ -60,7 +60,7 @@ Skills are auto-discovered and listed in your system prompt. When a skill applie
 digraph skill_flow {
     "User message received" [shape=doublecircle];
     "Building something new?" [shape=doublecircle];
-    "Already brainstormed?" [shape=diamond];
+    "Proposal + feature spec exist?" [shape=diamond];
     "Invoke brainstorming skill" [shape=box];
     "Simple operation?" [shape=diamond];
     "Might any skill apply?" [shape=diamond];
@@ -72,9 +72,9 @@ digraph skill_flow {
     "Do it directly" [shape=box, style=filled, fillcolor=lightgreen];
     "Respond (including clarifications)" [shape=doublecircle];
 
-    "Building something new?" -> "Already brainstormed?";
-    "Already brainstormed?" -> "Invoke brainstorming skill" [label="no"];
-    "Already brainstormed?" -> "Simple operation?" [label="yes"];
+    "Building something new?" -> "Proposal + feature spec exist?";
+    "Proposal + feature spec exist?" -> "Invoke brainstorming skill" [label="no — artifacts missing"];
+    "Proposal + feature spec exist?" -> "Simple operation?" [label="yes — artifacts exist"];
     "Invoke brainstorming skill" -> "Simple operation?";
 
     "User message received" -> "Simple operation?";
@@ -119,6 +119,8 @@ When multiple skills could apply, use this order:
 
 "Let's build X" → brainstorming first, then implementation skills.
 "Fix this bug" → debugging first, then domain-specific skills.
+
+**What counts as "already brainstormed":** The brainstorming skill has been completed when the proposal (`docs/design/YYYY-MM-DD-<topic>-proposal.md`) and the feature spec (`docs/design/YYYY-MM-DD-<topic>-spec.md`) both exist. A conversation about the idea is not the same as brainstorming. If the artifacts don't exist, invoke the brainstorming skill — even if you've already discussed the idea at length.
 
 ## Skill Types
 

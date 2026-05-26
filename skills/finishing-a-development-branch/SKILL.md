@@ -143,6 +143,8 @@ Then: Cleanup worktree (Step 5)
 
 Read the delta spec from `docs/plans/<date>-<feature>-delta.md` and merge it into the living specs in `docs/specs/`.
 
+The delta spec was derived during planning by comparing the feature spec (proposed behavior) against the living spec (current behavior). The sync step merges the approved changes back into the living spec, completing the cycle.
+
 #### If the delta declares "No Behavioral Changes"
 
 Skip the sync entirely. Commit a note if appropriate: `note: <feature> had no behavioral changes`.
