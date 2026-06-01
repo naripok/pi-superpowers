@@ -9,9 +9,7 @@ Help turn ideas into fully formed proposals and specs through natural collaborat
 
 Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design and get user approval. Then write the proposal and the feature spec — the behavioral contract that drives all downstream work.
 
-<HARD-GATE>
-Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have written both the proposal and the feature spec, the spec reviewer has approved the feature spec, and the user has approved them. This applies to EVERY project regardless of perceived simplicity.
-</HARD-GATE>
+**HARD GATE:** Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have written both the proposal and the feature spec, the spec reviewer has approved the feature spec, and the user has approved them. This applies to EVERY project regardless of perceived simplicity.
 
 ## Anti-Pattern: "This Is Too Simple To Need A Design"
 
@@ -208,11 +206,7 @@ After writing the feature spec, dispatch a read-only subagent using `spec-docume
 
 ### User Review Gate
 
-After the spec reviewer approves, ask the user to review both artifacts before proceeding:
-
-> "Proposal written to `<proposal-path>` and feature spec written to `<spec-path>`. Please review both and let me know if you want to make any changes before we start writing the implementation plan."
-
-Wait for the user's response. If they request changes, make them and re-run the spec reviewer, then re-present to the user. Only proceed once the user approves.
+After the spec reviewer approves, present both artifacts to the user for review. Ask them to confirm or request changes before proceeding to the implementation plan. If they request changes, make them, re-run the spec reviewer, and re-present. Only proceed once the user approves.
 
 ### Implementation
 

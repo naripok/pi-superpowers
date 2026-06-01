@@ -249,15 +249,10 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 ## Execution Handoff
 
-After saving the plan and delta spec, offer execution choice:
+After saving the plan and delta spec, ask the user which execution approach to use:
 
-**"Plan complete and saved to `docs/plans/YYYY-MM-DD-<topic>.md` (delta: `docs/design/YYYY-MM-DD-<topic>-delta.md`). Two execution options:**
-
-**1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
-
-**2. Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
-
-**Which approach?"**
+1. **Subagent-Driven (recommended)** - Dispatch a fresh subagent per task, review between tasks, fast iteration
+2. **Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
 
 **If Subagent-Driven chosen:**
 - **REQUIRED SUB-SKILL:** Use subagent-driven-development
