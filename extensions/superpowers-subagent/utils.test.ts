@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getSummarySection } from "./utils.js";
+import { SUMMARY_INSTRUCTION } from "./agent-runner.js";
 
 describe("getSummarySection", () => {
   it("extracts the ## Summary section from output", () => {
@@ -72,5 +73,19 @@ Just a summary with no status.`;
 
     const result = getSummarySection(output);
     expect(result).toBe("## Summary\n\nJust a summary with no status.");
+  });
+});
+
+describe("SUMMARY_INSTRUCTION", () => {
+  it("contains the summary format directive", () => {
+    expect(SUMMARY_INSTRUCTION).toContain("## Summary");
+    expect(SUMMARY_INSTRUCTION).toContain("**Status:");
+  });
+
+  it("contains all four status values", () => {
+    expect(SUMMARY_INSTRUCTION).toContain("DONE");
+    expect(SUMMARY_INSTRUCTION).toContain("DONE_WITH_CONCERNS");
+    expect(SUMMARY_INSTRUCTION).toContain("BLOCKED");
+    expect(SUMMARY_INSTRUCTION).toContain("NEEDS_CONTEXT");
   });
 });
