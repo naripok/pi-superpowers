@@ -16,10 +16,23 @@ import { Type } from "@sinclair/typebox";
 import type { AgentConfig, AgentScope, SingleResult, TaskDetails } from "./types.js";
 import { discoverAgents } from "./agent-discovery.js";
 import { runSingleAgent, runParallel, runChain } from "./agent-runner.js";
-import { getFinalOutput } from "./utils.js";
+import { getFinalOutput, getSummarySection } from "./utils.js";
 import { renderCall, renderResult } from "./render.js";
 
 const MAX_PARALLEL_TASKS = 8;
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+const getSummaryText = (result: SingleResult): string => {
+  const fullOutput = getFinalOutput(result.messages);
+  return getSummarySection(fullOutput) || "";
+};
+
+const buildContent = (result: SingleResult): { type: "text"; text: string } => {
+  return { type: "text", text: getSummaryText(result) || "(no output)" };
+};
 
 // ---------------------------------------------------------------------------
 // Parameter schema
@@ -176,15 +189,9 @@ export default function (pi: ExtensionAPI) {
           };
         }
 
-        // Get final output
         const finalResult = results[results.length - 1];
-        let finalOutput = "";
-        for (let i = results.length - 1; i >= 0; i--) {
-          const output = getFinalOutput(results[i].messages);
-          if (output) { finalOutput = output; break; }
-        }
         return {
-          content: [{ type: "text", text: finalOutput || "(no output)" }],
+          content: [buildContent(finalResult)],
           details: makeDetails("chain")(results),
         };
       }
@@ -215,16 +222,16 @@ export default function (pi: ExtensionAPI) {
         );
 
         const successCount = results.filter((r) => r.exitCode === 0).length;
-        const summaries = results.map((r) => {
-          const output = getFinalOutput(r.messages);
-          const preview = output.slice(0, 100) + (output.length > 100 ? "..." : "");
-          return `[${r.agent}] ${r.exitCode === 0 ? "completed" : "failed"}: ${preview || "(no output)"}`;
+        const agentSummaries = results.map((r) => {
+          const summary = getSummaryText(r);
+          const status = r.exitCode === 0 ? "completed" : "failed";
+          return `[${r.agent}] (${status})\n\n${summary || "(no output)"}`;
         });
         return {
           content: [
             {
               type: "text",
-              text: `Parallel: ${successCount}/${results.length} succeeded\n\n${summaries.join("\n\n")}`,
+              text: `Parallel: ${successCount}/${results.length} succeeded\n\n${agentSummaries.join("\n\n\n")}`,
             },
           ],
           details: makeDetails("parallel")(results),
@@ -259,7 +266,7 @@ export default function (pi: ExtensionAPI) {
           };
         }
         return {
-          content: [{ type: "text", text: getFinalOutput(result.messages) || "(no output)" }],
+          content: [buildContent(result)],
           details: makeDetails("single")([result]),
         };
       }
