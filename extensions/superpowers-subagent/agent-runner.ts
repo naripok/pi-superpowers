@@ -16,6 +16,18 @@ import type { AgentConfig, SingleResult, TaskDetails } from "./types.js";
 import { parseStatus } from "./status-parser.js";
 import { getFinalOutput } from "./utils.js";
 
+export const SUMMARY_INSTRUCTION = `
+
+## Response Format
+
+End your response with a "## Summary" section containing a concise summary of your work. The summary should cover:
+- What you accomplished or found
+- Any files that were read or modified
+- Any errors or concerns
+
+End the summary with your status on a single line:
+**Status: DONE** (or DONE_WITH_CONCERNS, BLOCKED, NEEDS_CONTEXT)`;
+
 type OnUpdateCallback = (partial: AgentToolResult<TaskDetails>) => void;
 
 /**
@@ -115,9 +127,12 @@ export async function runSingleAgent(
   };
 
   try {
-    // Write system prompt to temp file
-    if (agent.systemPrompt.trim()) {
-      const tmp = await writePromptToTempFile(agent.name, agent.systemPrompt);
+    // Write system prompt to temp file (with summary instruction appended)
+    const fullPrompt = agent.systemPrompt.trim()
+      ? `${agent.systemPrompt}${SUMMARY_INSTRUCTION}`
+      : SUMMARY_INSTRUCTION.trimStart();
+    if (fullPrompt.trim()) {
+      const tmp = await writePromptToTempFile(agent.name, fullPrompt);
       tmpPromptDir = tmp.dir;
       tmpPromptPath = tmp.filePath;
       args.push("--append-system-prompt", tmpPromptPath);

@@ -18,3 +18,15 @@ export function getFinalOutput(messages: Message[]): string {
   }
   return "";
 }
+
+/**
+ * Extract the ## Summary section from the subagent's final text output.
+ * If no ## Summary section exists, returns the full output unchanged (fallback).
+ * If multiple ## Summary headings exist, uses the LAST occurrence.
+ */
+export function getSummarySection(text: string): string {
+  if (!text) return text;
+  const lastSummaryIndex = text.lastIndexOf("## Summary");
+  if (lastSummaryIndex === -1) return text;
+  return text.slice(lastSummaryIndex);
+}
